@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+</head>
+<body>
+    <h1><%= message %></h1>
+    <main>
+        <form action="/create-log" method="post">
+            <label for="description-box">Description</label>
+            <textarea name="description" id="description-box" cols="30" rows="3" placeholder = "Description..."></textarea>
+            <div class="second-layer">
+                <label for="category-drop-down"></label>
+                <select name="category" id="category-drop-down">
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Family">Family</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Others">Others</option>
+                </select>
+                <label for="due-date">Due date</label>
+                <input type="date" name="due-date" id="due-date">
+            </div>
+            <div class="third-layer">
+                <input type="submit" value="add-task">
+            </div>        
+        </form>
+
+    </main>    
+</body>
+</html>
