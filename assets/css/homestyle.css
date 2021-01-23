@@ -1,0 +1,75 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h1-heading{
+    text-align: center;
+}
+.frame-1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.first-layer, .second-layer{
+    display: flex;
+    flex-direction: column;
+    width : 90%;
+    height: 20vh;
+    position: relative;
+    border-bottom: 2px solid darkgrey;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    color: darkgrey;
+}
+option:hover{
+    background-color: rgb(207, 91, 38);
+}
+.first-layer label{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.first-layer input[type="text"]{
+   outline: none;
+   border: none;
+   height: 100% ;
+}
+.second-layer{
+    flex-direction: row;
+}
+.second-layer label{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.second-layer div{
+    width: 50%;
+    padding : 5px 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    border-left: 1px solid darkgrey;
+}
+.second-layer div > *{
+    outline: none;
+    border:none;
+}
+.second-layer div > *:nth-child(2){
+    padding-top: 5px;
+    height: 18vh;
+}
+.second-layer div:nth-child(1){
+    margin-left: 0;
+    border-left : none;
+}
+.third-layer{
+    display: flex;
+    width : 90%;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 2px solid darkgrey;
+}

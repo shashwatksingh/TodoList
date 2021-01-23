@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> </title>
+    <title> <%= title %> </title>
+    <link rel="stylesheet" href="/css/homestyle.css">
 </head>
 <body>
-    <h1><%= message %></h1>
+    <h1 class = "h1-heading"><%= message %></h1>
     <main>
-        <form action="/create-log" method="post">
-            <label for="description-box">Description</label>
-            <textarea name="description" id="description-box" cols="30" rows="3" placeholder = "Description..."></textarea>
+        <form action="/create-log" method="post" class="frame-1">
+            <div class="first-layer">
+                <label for="description-box">Description</label>
+                <input type="text" name="description" id="description-box">
+            </div>
             <div class="second-layer">
-                <label for="category-drop-down"></label>
-                <select name="category" id="category-drop-down">
-                    <option value="Personal">Personal</option>
-                    <option value="Work">Work</option>
-                    <option value="Family">Family</option>
-                    <option value="Leisure">Leisure</option>
-                    <option value="Others">Others</option>
-                </select>
-                <label for="due-date">Due date</label>
-                <input type="date" name="due-date" id="due-date">
+                <div>
+                    <label for="category-drop-down">Category</label>
+                    <select name="category" id="category-drop-down">
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="Family">Family</option>
+                        <option value="Leisure">Leisure</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="duedate">Due date</label>
+                <input type="date" name="duedate" id="due-date">
+                </div>                
             </div>
             <div class="third-layer">
                 <input type="submit" value="add-task">
