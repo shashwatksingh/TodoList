@@ -1,9 +1,17 @@
 const TodoLists = require('../models/TodoLists');
 module.exports.home = function(req,res){
-    return res.render('listview',{
-        title: "Landing Page",
-        message: "Succesfully set up the Home page via MVC"
+    TodoLists.find({}, function(err,logs){
+        if(err){
+            console.log("Error in fetching contacts from the user");
+            return;
+        }
+        return res.render('listview',{
+            title: "Landing Page",
+            message: "Succesfully set up the Home page via MVC",
+            Logs : logs
+        });
     });
+    
 }
 module.exports.createLog = async function(req,res){
     const post = new TodoLists({
@@ -11,6 +19,10 @@ module.exports.createLog = async function(req,res){
         worktype: req.body.category,
         date: req.body.duedate
     });
-    const savelog = await post.save();
+    await post.save();
     return res.redirect('back');
+}
+module.exports.deletelogs = function(req,res){
+    
+    return res.redirect('back');    
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <%= title %> </title>
     <link rel="stylesheet" href="/css/homestyle.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>   
 </head>
 <body>
     <h1 class = "h1-heading"><%= message %></h1>
@@ -32,9 +33,23 @@
             </div>
             <div class="third-layer">
                 <input type="submit" value="add-task">
+                <a href="/delete-element"></a>
             </div>        
         </form>
+        <div>
+            <ul class="vertical-list">
+                <% for(let i of Logs) {%>
+                    <li>
+                        <input type="checkbox" class="delete-check" name="" id="<%= i.id %>">
+                        <span><%= i.name %></span>
+                        <span><%= i.worktype %> </span>
+                        <span><%= i.date %> </span>
+                    </li> 
+                <% }  %>
+            </ul>
+        </div>
 
-    </main>    
+    </main> 
+    <script src="javascript/index.js"></script>
 </body>
 </html>

@@ -73,3 +73,17 @@ option:hover{
     margin: 0 auto;
     border-bottom: 2px solid darkgrey;
 }
+.vertical-list{
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   width: 90vw;
+}
+.vertical-list li{
+    height: 20vh;
+    border-bottom: 2px solid darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
