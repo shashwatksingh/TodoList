@@ -32,24 +32,25 @@
                 </div>                
             </div>
             <div class="third-layer">
-                <input type="submit" value="add-task">
+                <input id="add-button" type="submit" value="add-task">
                 <a href="/delete-element"></a>
             </div>        
         </form>
-        <div>
+        <div class="center">
             <ul class="vertical-list">
-                <form method="GET" action="/delete-todo/">
-                    <input type="submit" value="Delete-TODO"/>
+                <form class="lower-form" method="GET" action="/delete-todo/">
                     <% for(let i of Logs) {%>
                         <li>
                             <!--To many name with 'id' will result into array at the server-->
+                            
                             <input type="checkbox" class="delete-check" name="id" value="<%=i._id%>" id="<%= i.id %>">
-                            <span><%= i.name %></span>
-                            <span><%= i.worktype %> </span>
-                            <span><%= i.date %> </span>
+                            <p class="list-box"><%= i.name %></p>
+                            <p class="list-box"><%= i.date %> </p>
+                            <p class="list-box"id="worktype"><%= i.worktype %> </p>
                         </li> 
-                    <% }  %>
-            </form>
+                    <% } %>
+                    <input id="delete-button" type="submit" value="Delete-TODO"/>
+                </form>
             </ul>
         </div>
 

@@ -7,19 +7,24 @@ module.exports.home = function(req,res){
         }
         return res.render('listview',{
             title: "Landing Page",
-            message: "Succesfully set up the Home page via MVC",
+            message: "Personal To-do List",
             Logs : logs
         });
     });
     
 }
 module.exports.createLog = async function(req,res){
-    const post = new TodoLists({
-        name: req.body.description,
-        worktype: req.body.category,
-        date: req.body.duedate
-    });
-    await post.save();
+    try{
+        const post = new TodoLists({
+            name: req.body.description,
+            worktype: req.body.category,
+            date: req.body.duedate
+        });
+        await post.save();
+    } catch{
+        res.send("Some error!");
+    }
+    
     return res.redirect('back');
 }
 module.exports.deletelogs = function(req,res){
