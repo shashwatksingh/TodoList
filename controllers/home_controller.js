@@ -23,6 +23,21 @@ module.exports.createLog = async function(req,res){
     return res.redirect('back');
 }
 module.exports.deletelogs = function(req,res){
-    
+    let arrid  = req.query.id;
+    if(!Array.isArray(arrid)){
+        deleteById(arrid);
+    } else{
+        for (i of arrid){
+            deleteById(i);  
+        }
+    }
+    function deleteById(i){
+        TodoLists.findByIdAndDelete(i, (err) => {
+            if(err){
+                console.log("Error in deleting an object in the database");
+                return;
+            }
+        });
+    }  
     return res.redirect('back');    
 }

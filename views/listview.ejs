@@ -38,14 +38,18 @@
         </form>
         <div>
             <ul class="vertical-list">
-                <% for(let i of Logs) {%>
-                    <li>
-                        <input type="checkbox" class="delete-check" name="" id="<%= i.id %>">
-                        <span><%= i.name %></span>
-                        <span><%= i.worktype %> </span>
-                        <span><%= i.date %> </span>
-                    </li> 
-                <% }  %>
+                <form method="GET" action="/delete-todo/">
+                    <input type="submit" value="Delete-TODO"/>
+                    <% for(let i of Logs) {%>
+                        <li>
+                            <!--To many name with 'id' will result into array at the server-->
+                            <input type="checkbox" class="delete-check" name="id" value="<%=i._id%>" id="<%= i.id %>">
+                            <span><%= i.name %></span>
+                            <span><%= i.worktype %> </span>
+                            <span><%= i.date %> </span>
+                        </li> 
+                    <% }  %>
+            </form>
             </ul>
         </div>
 
