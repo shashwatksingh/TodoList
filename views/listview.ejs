@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <%= title %> </title>
+    <!--internal css link-->
     <link rel="stylesheet" href="/css/homestyle.css">
+    <!--loading jquery scripts-->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>   
 </head>
 <body>
     <h1 class = "h1-heading"><%= message %></h1>
     <main>
+        <!--Creating frame-1 to take input for a new task from the user-->
         <form action="/create-log" method="post" class="frame-1">
+            <!--First layer-->
             <div class="first-layer">
                 <label for="description-box">Description</label>
                 <input type="text" name="description" id="description-box">
             </div>
+            <!--Second layer-->
             <div class="second-layer">
                 <div>
                     <label for="category-drop-down">Category</label>
@@ -31,11 +36,13 @@
                 <input type="date" name="duedate" id="due-date">
                 </div>                
             </div>
+            <!--Third layer-->
             <div class="third-layer">
                 <input id="add-button" type="submit" value="add-task">
                 <a href="/delete-element"></a>
             </div>        
         </form>
+        <!--List display with a form to delete completed task-->
         <div class="center">
             <ul class="vertical-list">
                 <form class="lower-form" method="GET" action="/delete-todo/">
@@ -46,7 +53,7 @@
                             <input type="checkbox" class="delete-check" name="id" value="<%=i._id%>" id="<%= i.id %>">
                             <p class="list-box"><%= i.name %></p>
                             <p class="list-box"><%= i.date %> </p>
-                            <p class="list-box"id="worktype"><%= i.worktype %> </p>
+                            <p class="list-box worktype"><%= i.worktype %> </p>
                         </li> 
                     <% } %>
                     <input id="delete-button" type="submit" value="Delete-TODO"/>
@@ -55,6 +62,7 @@
         </div>
 
     </main> 
+    <!--internal javascript file-->
     <script src="javascript/index.js"></script>
 </body>
 </html>

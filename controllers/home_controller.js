@@ -1,4 +1,6 @@
+//requiring todolist model
 const TodoLists = require('../models/TodoLists');
+//home controller to render home page with form and list on it 
 module.exports.home = function(req,res){
     TodoLists.find({}, function(err,logs){
         if(err){
@@ -13,6 +15,7 @@ module.exports.home = function(req,res){
     });
     
 }
+//createLog controller for creating and saving a new entry to the database
 module.exports.createLog = async function(req,res){
     try{
         const post = new TodoLists({
@@ -22,11 +25,12 @@ module.exports.createLog = async function(req,res){
         });
         await post.save();
     } catch{
-        res.send("Some error!");
+        return res.redirect("/");
     }
     
     return res.redirect('back');
 }
+//deleteLog controller for deleting a new entry from the database
 module.exports.deletelogs = function(req,res){
     let arrid  = req.query.id;
     if(!Array.isArray(arrid)){
@@ -36,13 +40,15 @@ module.exports.deletelogs = function(req,res){
             deleteById(i);  
         }
     }
-    function deleteById(i){
-        TodoLists.findByIdAndDelete(i, (err) => {
-            if(err){
-                console.log("Error in deleting an object in the database");
-                return;
-            }
-        });
-    }  
-    return res.redirect('back');    
+    return res.redirect('back');
 }
+function deleteById(i){
+    TodoLists.findByIdAndDelete(i, (err) => {
+        if(err){
+            console.log("Error in deleting an object in the database");
+            return;
+        }
+    });
+}  
+       
+
