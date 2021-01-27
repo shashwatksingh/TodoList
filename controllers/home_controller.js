@@ -8,7 +8,7 @@ module.exports.home = function(req,res){
             return;
         }
         return res.render('listview',{
-            title: "Landing Page",
+            title: "Tasky - Manage your valuable resources",
             message: "Personal To-do List",
             Logs : logs
         });
