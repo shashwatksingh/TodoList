@@ -4,6 +4,7 @@
   "description": "to-do list for tracking your expenses and schedule",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shashwat Kumar Singh",
