@@ -1,6 +1,6 @@
 //requiring express for obvious reasons
 const express = require('express');
-const port = process.env.port || 3000; // port is 880 for now
+const port = process.env.PORT || 3000; // port is 880 for now
 const app =express(); //creating app
 //firing up mongoose and mongodb
 const db = require ('./config/mongoose');
