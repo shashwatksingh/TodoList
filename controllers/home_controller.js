@@ -42,6 +42,7 @@ module.exports.deletelogs = function(req,res){
     }
     return res.redirect('back');
 }
+//deletemany
 function deleteById(i){
     TodoLists.findByIdAndDelete(i, (err) => {
         if(err){
