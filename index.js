@@ -10,6 +10,8 @@ const TodoLists = require('./models/TodoLists');
 /*app.get('/',function (req,res){
     res.send('To-do list server up and running');
 });*/
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 //requiring static files from the assets through middleware
 app.use(express.static('assets'));
 //setting up ejs view engine

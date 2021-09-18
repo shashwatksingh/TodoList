@@ -44,7 +44,7 @@ module.exports.deletelogs = function(req,res){
 }
 //This is a dummy route to see the mesages relayed by the google pubsub
 module.exports.webhooks = (req, res) => {
-    console.log(req);
+    req.body ? console.log(req.body): console.log(req);
     res.status(200).json({message: 'ack'});
 }
 //deletemany
