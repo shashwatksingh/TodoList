@@ -6,5 +6,6 @@ const homeController = require('../controllers/home_controller');
 router.post('/create-log', homeController.createLog);
 router.get('/',homeController.home);
 router.get('/delete-todo',homeController.deletelogs);
+router.post('googlewebhook', homeController.webhooks)
 //router.get('/assets/javascript/index.js', homeController.javascriptfile);
 module.exports = router;

@@ -42,6 +42,11 @@ module.exports.deletelogs = function(req,res){
     }
     return res.redirect('back');
 }
+//This is a dummy route to see the mesages relayed by the google pubsub
+module.exports.webhooks = (req, res) => {
+    console.log(req);
+    res.status(200).json({message: 'ack'});
+}
 //deletemany
 function deleteById(i){
     TodoLists.findByIdAndDelete(i, (err) => {
