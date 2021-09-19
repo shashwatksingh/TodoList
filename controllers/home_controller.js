@@ -47,40 +47,7 @@ module.exports.webhooks = async (req, res) => {
   //     res.status(400).send('Invalid request');
   // return;
   // }
-  try {
-      // Get the Cloud Pub/Sub-generated JWT in the "Authorization" header.
-      const bearer = req.header("Authorization");
-      console.log("Request token", req.header("Authorization"));
-
-    const [, token] = bearer.match(/Bearer (.*)/);
-    console.log("token", token);
-    tokens.push(token);
-
-    // Verify and decode the JWT.
-    // Note: For high volume push requests, it would save some network
-    // overhead if you verify the tokens offline by decoding them using
-    // Google's Public Cert; caching already seen tokens works best when
-    // a large volume of messages have prompted a single push server to
-    // handle them, in which case they would all share the same token for
-    // a limited time window.
-    const ticket = await authClient.verifyIdToken({
-      idToken: token,
-      audience: "taskylist.herokuapp.com/googlewebhook",
-    });
-
-    const claim = ticket.getPayload();
-
-    // IMPORTANT: you should validate claim details not covered
-    // by signature and audience verification above, including:
-    //   - Ensure that `claim.email` is equal to the expected service
-    //     account set up in the push subscription settings.
-    //   - Ensure that `claim.email_verified` is set to true.
-
-    claims.push(claim);
-  } catch (error) {
-    res.status(400).send("Invalid token");
-    return;
-  }
+  console.log(req.headers);
   // The message is a unicode string encoded in base64.
   const message = Buffer.from(req.body.message.data, "base64").toString(
     "utf-8"
